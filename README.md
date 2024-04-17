@@ -77,7 +77,23 @@ This is the place for you to write reflections:
 ### Mandatory (Publisher) Reflections
 
 #### Reflection Publisher-1
+1. In this specific case, using a trait may not be necessary since there's only one relationship between the publisher and subscribers. However, employing traits would be beneficial in scenarios with multiple implementations.
+
+2. Using Vec isn't suitable because it allows duplicated keys. DashMap ensures unique id and URL enforcement.
+
+3. DashMap is essential for thread safety in this multi-threaded context, ensuring safe access to the SUBSCRIBERS variable.
 
 #### Reflection Publisher-2
+1. Separating Service and Repository from the Model adheres to the Single Responsibility Principle, ensuring each component handles a distinct concern: Service for business logic and Repository for data storage operations.
+
+2. Relying solely on the Model increases code complexity as it combines data storage and business logic, making maintenance and scalability challenging due to the lack of clear separation of concerns.
+
+3. Postman facilitates API testing and management of cookies on a URL basis. Its features like request/response validation, automated testing, and collaboration tools enhance testing efficiency and contribute to better software quality and project management.
 
 #### Reflection Publisher-3
+
+1. The tutorial uses the Push model of the Observer Pattern, evident from the notify function that notifies subscribers.
+
+2. The Pull model could offer advantages such as subscribers retrieving data only when needed, reducing unnecessary data transfer. However, it might introduce complexity in ensuring data consistency and handling stale data.
+
+3. Without multi-threading, notifying subscribers individually would be required, potentially leading to longer operation times and reduced performance due to sequential processing.
